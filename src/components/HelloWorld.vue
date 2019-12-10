@@ -22,7 +22,9 @@ export default {
   },
   methods: {
     buttonClicked() {
-    fetch("https://lhd2019.azurewebsites.net/api/GetSpotifyOuthURL?code=nidsqbrTTU20uP06EHsxoqbzhaFvkC8FFoArDGzurRbqjcdP3IYwgw==",
+    let redirectURL = window.location.href
+    redirectURL = redirectURL.substring(0, redirectURL.length - 1) // remove the last '/' from the url
+    fetch(`https://lhd2019.azurewebsites.net/api/GetSpotifyOuthURL?code=nidsqbrTTU20uP06EHsxoqbzhaFvkC8FFoArDGzurRbqjcdP3IYwgw==&redirect=${redirectURL}`,
       {
         mode: 'cors',
         headers: {
